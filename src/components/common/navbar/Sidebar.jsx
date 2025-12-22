@@ -25,7 +25,8 @@ export default function Sidebar() {
     <>
       <div className=" fixed hidden md:block pr-4 py-5 w-60 bg-sidebar h-[100vh]  ">
         <div className=" flex items-center gap-2 ">
-          <LogoSvg />
+          {/* <LogoSvg /> */}
+          <img src="../../../../public/logo.webp" alt="" className="w-[40px]"/>
 
           <div className="">
             <h1 className="font-cairo text-lg font-bold md:text-2xl ">
