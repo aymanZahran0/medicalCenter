@@ -3,7 +3,7 @@ import axios from "axios";
 const token = localStorage.getItem("userToken");
 
 const axiosInstance = axios.create({
-  baseURL: "myURL",
+  baseURL: "https://backend-badr.vercel.app",
 });
 
 axiosInstance.interceptors.request.use(

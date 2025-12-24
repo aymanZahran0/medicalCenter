@@ -21,10 +21,11 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
 
         // custom variant
-        add:"bg-primary text-white rounded-3xl font-cairo hover:bg-primary/85",
-        delete:"bg-red-300 text-red-500 rounded-3xl font-sans hover:bg-red-300/85",
-        update:"bg-secondary text-primary rounded-3xl font-cairo hover:bg-sky-100",
-        show:"bg-green-100 text-green-500 rounded-3xl font-cairo hover:bg-green-50",
+        add:"bg-primary text-white rounded-3xl text-sm hover:bg-primary/85",
+        delete:"bg-red-100 text-red-500 rounded-3xl hover:bg-red-100/85 w-0",
+        update:"bg-secondary text-primary rounded-3xl hover:bg-sky-100 w-0",
+        show:"bg-green-100 text-green-500 rounded-3xl hover:bg-green-50 w-0",
+        outline:"border rounded-3xl hover:bg-gray-50",
       
       },
 

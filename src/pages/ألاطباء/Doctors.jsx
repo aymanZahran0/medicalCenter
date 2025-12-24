@@ -1,10 +1,18 @@
-import TestDoc from '@/components/ألاطباء/TestDoc'
-import React from 'react'
+import React, { useEffect } from "react";
+import DoctorTable from "@/components/ألاطباء/DoctorTable";
+
 
 export default function Doctors() {
+
+   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
-     <TestDoc/>
+      <div className="p-4  mr-0 md:mr-64">
+        <DoctorTable />
+      </div>
     </>
-  )
+  );
 }
