@@ -15,17 +15,16 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "../../ui/button";
-import {
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { columnsDoctor } from "./columns";
 import { useSearchParams } from "react-router-dom";
 import axiosInstance from "@/apis/axiosInstance";
 // import { Table_API } from "@/apis/Table_API";
 import { SearchInput } from "@/components/common/SearchInput";
 import Filter from "@/assets/table/Filter";
-
+import CostumDialog from "./CostumDialog";
+import AddDoctor from "@/components/ألاطباء/AddDoctor";
+import DeleteDoctor from "@/components/ألاطباء/DeleteDoctor";
 
 export function DataTable({}) {
   const [columnFilters, setColumnFilters] = useState([]);
@@ -123,8 +122,21 @@ export function DataTable({}) {
   console.info(pages);
   console.info(pageIndex);
 
+  // dialog
+  const [open, setOpen] = useState(false);
+  const [dialogType, setDialogType] = React.useState(null);
+
+
+
   return (
     <>
+      {/* custem dialog */}
+      <CostumDialog open={open} setOpen={setOpen}>
+       {dialogType==='add' && <AddDoctor />}
+       {dialogType==='delete' && <DeleteDoctor />}
+      </CostumDialog>
+
+      {/* head */}
       <div className=" md:flex items-center justify-between gap-5 mb-5">
         <h5 className="font-bold">الأطباء</h5>
 
@@ -144,7 +156,14 @@ export function DataTable({}) {
             تصنيف
           </Button>
 
-          <Button variant="add">+ إضافة طبيب</Button>
+          <Button variant="add" onClick={() => {
+            setOpen(true);
+            setDialogType('add');
+
+          }}>
+            + إضافة طبيب
+          </Button>
+          {/* Dialog */}
         </div>
       </div>
 

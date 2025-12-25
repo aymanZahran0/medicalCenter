@@ -58,7 +58,7 @@ export const columnsDoctor = () => {
 
     {
       accessorKey: "section",
-      header: "التحكم",
+      header: "الإجرائات",
       cell: ({ row, getValue }) => {
         return (
           <div className="flex gap-1 ">
