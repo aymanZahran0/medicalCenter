@@ -12,10 +12,6 @@ export const columnsDoctor = () => {
     {
       accessorKey: "phone",
       header: "رقم الهاتف",
-
-      // cell: ({ row, getValue }) => { console.log( row)     // we don't need accessorKey when use cell
-      //     return  <p>{row.original.name.fname +row.original.name.lname}</p>
-      // }
     },
     {
       accessorKey: "email",
@@ -24,9 +20,9 @@ export const columnsDoctor = () => {
     {
       accessorKey: "specialties",
       header: "التخصص",
-          cell: ({ row, getValue }) => { 
-        return  <p>{row.original.specialties[1].name}</p>
-    }
+      cell: ({ row, getValue }) => {
+        return <p>{row.original.specialties[1].name}</p>;
+      },
     },
     {
       accessorKey: "createdAt",
@@ -35,11 +31,35 @@ export const columnsDoctor = () => {
     {
       accessorKey: "isActive",
       header: "حالة الحساب",
+      cell: ({ getValue }) => {
+        const isActive = getValue();
+
+        return (
+          <>
+            {/* <span className={isActive ? "text-green-600 " : "text-red-500"}> */}
+            {/* {isActive ? "نشط" : "غير نشط"} */}
+            <div className="flex">
+              {isActive ? (
+                <p className=" text-green-500 px-3 py-1 rounded-3xl bg-green-50">
+                  نشط
+                </p>
+              ) : (
+                <p className="flex  text-red-500 px-3 py-1 rounded-3xl font bg-red-50">
+                  غير نشط
+                </p>
+              )}
+            </div>
+
+            {/* </span> */}
+          </>
+        );
+      },
     },
+
     {
       accessorKey: "section",
       header: "التحكم",
-      cell: ({ row, getValue }) => { 
+      cell: ({ row, getValue }) => {
         return (
           <div className="flex gap-1 ">
             <Button variant="show" className="rounded-[100%] ">
@@ -57,4 +77,3 @@ export const columnsDoctor = () => {
     },
   ];
 };
-

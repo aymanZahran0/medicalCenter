@@ -15,12 +15,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "../../ui/button";
-import { Input } from "@/components/ui/input";
 import {
   ChevronLeft,
   ChevronRight,
-  ChevronsLeft,
-  ChevronsRight,
 } from "lucide-react";
 import { columnsDoctor } from "./columns";
 import { useSearchParams } from "react-router-dom";
@@ -28,9 +25,7 @@ import axiosInstance from "@/apis/axiosInstance";
 // import { Table_API } from "@/apis/Table_API";
 import { SearchInput } from "@/components/common/SearchInput";
 import Filter from "@/assets/table/Filter";
-import Delete from "@/assets/table/Delete";
-import Edit from "@/assets/table/Edit";
-import Eye from "@/assets/table/Eye";
+
 
 export function DataTable({}) {
   const [columnFilters, setColumnFilters] = useState([]);
