@@ -3,7 +3,7 @@ import Eye from "@/assets/table/Eye";
 import Delete from "@/assets/table/Delete";
 import { Button } from "@/components/ui/button";
 
-export const columnsDoctor = () => {
+export const columnsDoctor = (openDeleteDialog) => {
   return [
     {
       accessorKey: "name",
@@ -36,8 +36,6 @@ export const columnsDoctor = () => {
 
         return (
           <>
-            {/* <span className={isActive ? "text-green-600 " : "text-red-500"}> */}
-            {/* {isActive ? "نشط" : "غير نشط"} */}
             <div className="flex">
               {isActive ? (
                 <p className=" text-green-500 px-3 py-1 rounded-3xl bg-green-50">
@@ -60,6 +58,7 @@ export const columnsDoctor = () => {
       accessorKey: "section",
       header: "الإجرائات",
       cell: ({ row, getValue }) => {
+        // console.log(row)
         return (
           <div className="flex gap-1 ">
             <Button variant="show" className="rounded-[100%] ">
@@ -68,7 +67,7 @@ export const columnsDoctor = () => {
             <Button variant="update" className="rounded-[100%]">
               <Edit />
             </Button>
-            <Button variant="delete" className="rounded-[100%] ">
+            <Button onClick={() => openDeleteDialog(row.original._id)} variant="delete" className="rounded-[100%] ">
               <Delete />
             </Button>
           </div>

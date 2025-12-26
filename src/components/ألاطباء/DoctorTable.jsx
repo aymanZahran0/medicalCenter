@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { SearchInput } from "../common/SearchInput";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import Filter from "@/assets/table/Filter";
-import Delete from "@/assets/table/Delete";
-import Edit from "@/assets/table/Edit";
-import Eye from "@/assets/table/Eye";
 import TablePage from "../common/table/Page";
 import { Table_API } from "@/apis/Table_API";
-import CostumDialog from "../common/table/CostumDialog";
 
 
 
@@ -21,7 +13,7 @@ export default function doctorTable() {
     );
 
     Table_API();
-    console.log(Table_API)
+    // console.log(Table_API)
   }, []);
 
   return (

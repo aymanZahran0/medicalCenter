@@ -55,7 +55,7 @@ export function DataTable({}) {
   useEffect(() => {
     // api
     Table_API();
-    setColumns(columnsDoctor);
+    setColumns(columnsDoctor(openDeleteDialog));
   }, []);
 
   function studentsTable() {
@@ -124,16 +124,24 @@ export function DataTable({}) {
 
   // dialog
   const [open, setOpen] = useState(false);
-  const [dialogType, setDialogType] = React.useState(null);
+  const [dialogType, setDialogType] = useState(null);
+  // const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [idDoctor, setIdDoctor] = useState(null);
 
+  const openDeleteDialog = (id) => {
+    // setSelectedDoctor(doctor);
+    setDialogType("delete");
+    setIdDoctor(id);
+    setOpen(true);
 
+  };
 
   return (
     <>
       {/* custem dialog */}
       <CostumDialog open={open} setOpen={setOpen}>
-       {dialogType==='add' && <AddDoctor />}
-       {dialogType==='delete' && <DeleteDoctor />}
+        {dialogType === "add" && <AddDoctor />}
+        {dialogType === "delete" && <DeleteDoctor id={idDoctor}/>}
       </CostumDialog>
 
       {/* head */}
@@ -156,11 +164,13 @@ export function DataTable({}) {
             تصنيف
           </Button>
 
-          <Button variant="add" onClick={() => {
-            setOpen(true);
-            setDialogType('add');
-
-          }}>
+          <Button
+            variant="add"
+            onClick={() => {
+              setOpen(true);
+              setDialogType("add");
+            }}
+          >
             + إضافة طبيب
           </Button>
           {/* Dialog */}
